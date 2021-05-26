@@ -1,0 +1,8 @@
+{
+  "name": "knockout-answer",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}

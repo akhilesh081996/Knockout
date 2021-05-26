@@ -1,0 +1,69 @@
+<ion-header collapse="condense">
+  <ion-toolbar>
+    <ion-icon name="arrow-back"></ion-icon>
+    <ion-title>Profile Information</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="ion-no-padding">
+    <ion-item class="ion-no-padding header-img-div">
+      <div *ngIf="images.length > 0" class="cover-img-div">
+        <div class="cover-img-mask">
+          <ion-avatar class="profile-avatar-div" (click)="selectImage()">
+            <ion-img *ngIf="images.length > 0" [src]="images[0].path"></ion-img>
+            <ion-img *ngIf="images.length == 0" src="../../assets/imgs/noavatar.jpg"></ion-img>
+          </ion-avatar>
+           <div class="user-details">
+            <h2>{{fullName}} | Zipcode</h2>
+          </div>
+        </div>
+      </div>      
+    </ion-item>
+  </ion-list>
+  <ion-card class="profile-card" *ngIf="loginUserInfo != null">
+    <ion-card-content style="width: 100%;">
+      <form class="form" [formGroup]="validationsform" (ngSubmit)="tryUpdateProfile(validationsform.value)">
+        <ion-grid class="ion-no-padding">
+
+          <ion-row class="ion-justify-content-center ion-align-items-center avatar-row">
+            <ion-col size="12">
+              <ion-item mode="md">
+                <ion-icon name="mail-outline" size="small" slot="start"></ion-icon>
+                <ion-input class="ion-text-left" placeholder="Contact email address" formControlName="contact_email">
+                </ion-input>
+              </ion-item>
+              <ion-item mode="md">
+                <ion-icon name="call-outline" size="small" slot="start"></ion-icon>
+                <ion-input class="ion-text-left" placeholder="Contact phone number" formControlName="phone"></ion-input>
+              </ion-item>
+              <!--  <ion-item mode="md">
+                <ion-icon name="key-outline" size="small" slot="start"></ion-icon>
+                <ion-input class="ion-text-left" placeholder="Password" formControlName="password"></ion-input>
+              </ion-item> -->
+
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-button class="updateprofile-button" mode="ios" type="submit" fill="solid"
+          [disabled]="!validationsform.valid" size="default" shape="round" expand="block">
+          Update Profile321
+        </ion-button>
+
+        <div class="action">
+          <ion-button class="other-button" mode="ios" fill="solid" shape="round" expand="full"
+            [routerLink]="['/tablinks/services']">
+            <span class="span-left">Service Request</span>     
+          </ion-button>
+          <ion-button class="other-button" mode="ios" shape="round" fill="solid" expand="full"
+            [routerLink]="['/tablinks/home']">
+            <span class="span-left">Service History</span>      
+          </ion-button>
+          <ion-button class="other-button" mode="ios" shape="round" fill="solid" expand="full">
+            <span class="span-left">Update Payment</span>     
+          </ion-button>
+        </div>
+      </form>
+    </ion-card-content>
+  </ion-card> 
+</ion-content>

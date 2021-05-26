@@ -1,0 +1,81 @@
+
+// =============  MY CSS  ==========
+
+ion-header ion-toolbar {
+    --background: white;
+    border-bottom: 1px solid #f2f2f2;
+    --border-width: 0;
+    ion-title {
+        text-align: center;
+    }
+    ion-button {
+        --background: transparent;
+        z-index: 1;
+        --background: transparent;
+        --box-shadow: 0;
+        position: absolute;
+        top: 8px;
+        margin: 0 0 0 15px;
+        --padding-start: 0;
+        span {
+            width: 15px;
+            height: 15px;
+            border-left: 2px solid black;
+            border-bottom: 2px solid black;
+            transform: rotate(45deg);
+            margin-left: 5px;
+            ;
+        }
+    }    
+}
+
+ion-header:after {
+    background-image: none !important;
+}
+
+ion-grid {
+    background: #fff;
+    padding: 15px;
+}
+
+ion-content {
+    --background: #fff;
+}
+
+
+.filter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    ion-label {
+        font-size: 14px;
+    }
+    ion-select {
+        width: 120px;
+        border: 1px solid #dbdbdb;
+        border-radius: 8px;
+        --padding-end: 16px;
+        height: 40px;
+    }
+}
+
+
+ion-list {
+    background: transparent!important;
+    ion-item {
+        --padding-start: 0;
+        --inner-padding-end: 0;
+        --background: transparent;
+        --min-height: 50px;
+        h6 {
+            font-size: 14px;
+            font-weight: 400;
+            margin: 0!important;
+        }
+        ion-label {
+            text-align: right;
+        }
+    }
+}

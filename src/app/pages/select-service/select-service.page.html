@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon name="arrow-back-outline" slot="start" (click)="back()"></ion-icon>
+    <ion-title>Select Services</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+
+    <form class="form" [formGroup]="validationsform" (ngSubmit)="next(validationsform.value)">
+
+      <ion-list class="sevices-top">
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <img src="assets/imgs/12.jpg">
+          </ion-thumbnail>
+          <ion-label>
+            <ion-input formControlName="service_name" placeholder="Service Name"></ion-input>
+          </ion-label>
+          <!--    <span>
+            <ion-icon src="assets/imgs/edit.svg"></ion-icon>
+          </span> -->
+        </ion-item>
+      </ion-list>
+
+      <div class="description">
+        <ion-item>
+          <ion-label position="floating">Description</ion-label>
+          <ion-textarea formControlName="question" placeholder="Type here..." auto-grow="true"></ion-textarea>
+        </ion-item>
+      </div>
+
+
+      <ion-list class="sevices-bottom">
+
+        <ion-item>
+          <ion-avatar slot="start">
+            <img [src]="pro_user?.logo">
+          </ion-avatar>
+          <div class="border-design">
+            <ion-label>
+              <h2>{{pro_user?.name}}</h2>
+              <!-- <p>Organization</p> -->
+            </ion-label>
+            <div class="price">
+              <span slot="end">${{pro_user?.service_price}}</span>
+            </div>
+          </div>
+        </ion-item>
+
+      </ion-list>
+
+      <div class="payment-method" *ngIf="card_number != undefined && card_number != ''">
+        <h3>Payment method</h3>
+        <span>Card *{{card_lastnumber}}</span>
+      </div>
+
+      <div class="action">
+        <ion-button class="button-h" mode="ios" type="button" fill="solid" size="default" shape="round" expand="block"
+          (click)="addPayment()">
+       {{card_number? 'Update Payment Method' : 'Add Payment Method'}}
+        </ion-button>
+
+        <ion-button type="submit" [disabled]="validationsform.invalid" class="button-h cancel" mode="ios" fill="solid"
+          size="default" shape="round" expand="block">
+          Next
+        </ion-button>
+
+      </div>
+
+    </form>
+
+
+  </ion-grid>
+</ion-content>

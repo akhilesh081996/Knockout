@@ -1,0 +1,79 @@
+ion-header ion-toolbar {
+    --background: white;
+    border-bottom: 1px solid #f2f2f2;
+    --border-width: 0;
+}
+
+ion-header:after {
+    background-image: none !important;
+}
+
+ion-content {
+    --background: white;
+}
+
+ion-header ion-button {
+    --background: transparent;
+    z-index: 1;
+    --background: transparent;
+    --box-shadow: 0;
+    position: absolute;
+    top: 8px;
+    margin: 0 0 0 15px;
+    --padding-start: 0;
+}
+
+ion-header ion-button span {
+    width: 15px;
+    height: 15px;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+    transform: rotate(45deg);
+    margin-left: 5px;
+    ;
+}
+
+ion-header ion-title {
+    text-align: center;
+}
+
+ion-label {
+    font-weight: 700;
+    display: block;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.about-set-all {
+    padding: 0 15px;
+}
+
+.contact-form {
+    padding: 10px;
+    background: #f6f6f6;
+    border-radius: 6px;
+}
+
+.contact-form ion-input {
+    border: 1px solid #e8e8e8;
+    background: white;
+    margin-bottom: 10px;
+    --padding-start: 10px;
+}
+
+.contact-form ion-textarea {
+    background: white;
+    border: 1px solid #e8e8e8;
+    margin-bottom: 8px;
+    --padding-start: 10px;
+}
+
+.contact-form ion-button {
+    --border-radius: 6px;
+    --background: #c50212;
+    --box-shadow: 0;
+    width: 100%;
+    height: 45px;
+}

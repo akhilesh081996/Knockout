@@ -1,0 +1,87 @@
+<ion-content>
+  <ion-list class="ion-no-padding">
+    <ion-item class="ion-no-padding header-img-div">
+      <div *ngIf="pro_user?.logo != ''" class="cover-img-div" [style.background-image]="'url('+pro_user?.logo+')'">
+        <div class="cover-img-mask">
+          <ion-grid>
+            <ion-row class="ion-justify-content-center ion-align-items-center" style="margin-top: 20px;">
+              <ion-col size="2" class="ion-text-center">
+                <ion-icon name="arrow-back-outline" style="color: white; font-size: 28px;" (click)="back()"></ion-icon>
+              </ion-col>
+              <ion-col size="8" class="ion-text-center">
+                <ion-label style="color: white; font-size: 18px;">Service Request</ion-label>
+              </ion-col>
+              <ion-col size="2" class="ion-text-center">
+                <ion-icon name="menu-outline" style="color: white; font-size: 28px;" (click)="openMenu()"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+
+      <div *ngIf="pro_user?.logo == ''" class="cover-img-div"
+        style="background-image: url(../../../assets/imgs/nocover.png);">
+        <div class="cover-img-mask"></div>
+      </div>
+
+    </ion-item>
+  </ion-list>
+  <form class="form" [formGroup]="validationsform" (ngSubmit)="next(validationsform.value)">
+    <ion-card class="profile-card">
+      <ion-card-header style="margin-top: 70px;">
+        <div class="rating-div">
+          <!-- <span class="rating-mark-text"> {{pro_user.rating}} &nbsp;</span> -->
+          <ionic5-star-rating activeIcon="star" defaultIcon="star-outline" activeColor="#f7c00b" defaultColor="grey"
+            readonly="true" formControlName="starRating" halfStar="true" fontSize="32px"
+            (ratingChanged)="logRatingChange($event)">
+          </ionic5-star-rating>
+        </div>
+        <ion-card-title style="text-align: center;">{{pro_user?.name}}</ion-card-title>
+        <button type="button" (click)="rateUser()"> Rate Pro</button>
+      </ion-card-header>
+      <ion-card-subtitle>Answer Price: <span class="answer-price-text"> ${{pro_user?.service_price}}</span>
+      </ion-card-subtitle>
+      <ion-card-content style="width: 100%;">
+        <ion-grid class="ion-no-padding">
+
+          <ion-row class="ion-justify-content-center ion-align-items-center avatar-row">
+            <ion-col size="12">
+              <ion-item>
+                <ion-textarea placeholder="Enter question here..." rows="4" formControlName="question"></ion-textarea>
+              </ion-item>
+
+              <!-- <ion-item lines="none">
+              <ion-label style="font-size: 12px; color: grey;">Deposit for live video post 150% of service price.</ion-label>
+              <ion-checkbox color="danger" slot="start" style="margin-inline-end: 12px;" [checked]="isLivePost" (ionChange)="onCheckLivePostChange($event)"></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label style="font-size: 12px; color: grey;">Prime Date</ion-label>
+              <ion-datetime  displayFormat="MMM DD, YYYY" placeholder="Select Date" formControlName="primedate"></ion-datetime>
+            </ion-item>
+            <ion-item>
+              <ion-label style="font-size: 12px; color: grey;">Prime Time</ion-label>
+              <ion-datetime display-format="h:mm A" picker-format="h:mm A" formControlName="primetime"></ion-datetime>
+            </ion-item>    -->
+              <ion-item lines="none" *ngIf="card_number != undefined && card_number != ''">
+                <ion-icon name="card-outline" slot="start"></ion-icon>
+                <ion-label>Card number: *{{card_lastnumber}}</ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-button *ngIf="!isCompleted" class="updateprofile-button" mode="ios" type="submit" fill="solid"
+          [disabled]="!validationsform.valid" size="default" shape="round" expand="block">
+          Submit
+        </ion-button>
+        <ion-button *ngIf="isCompleted" class="updateprofile-button" mode="ios" fill="solid" size="default"
+          shape="round" expand="block" (click)="completeRequest();">
+          Complete Request
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </form>
+  <ion-avatar class="profile-avatar-div" (click)="selectImage()">
+    <ion-img *ngIf="pro_user?.logo != ''" [src]="pro_user.logo"></ion-img>
+    <ion-img *ngIf="pro_user?.logo == ''" src="../../assets/imgs/noavatar.jpeg"></ion-img>
+  </ion-avatar>
+</ion-content>

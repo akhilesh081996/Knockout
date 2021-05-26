@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <!--  <ion-button (click)="goBack()">
+      <span></span>
+    </ion-button> -->
+    <ion-title>Message</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+
+    <ion-item detail *ngFor="let user of  chatUsers" (click)="opneChat(user)">
+      <ion-avatar slot="start">
+        <img [src]="user.receiver_avatar">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{user.receiver_name}}<small>{{user.time_date | elapsedTime}}</small></h2>
+        <h3>{{user.recent_message}}</h3>
+      </ion-label>
+    </ion-item>
+
+
+  </ion-list>
+</ion-content>

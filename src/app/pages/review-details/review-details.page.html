@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Review Details</ion-title>
+    <ion-button (click)="back()">
+      <span></span>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-grid>
+
+    <div class="review-details" *ngIf="ratingDetail">
+
+      <ion-thumbnail slot="start">
+        <ion-img [src]="ratingDetail.from_user_picture"></ion-img>
+      </ion-thumbnail>
+
+      <ion-label>{{ratingDetail.from_user_name}}</ion-label>
+
+      <ionic5-star-rating #rating activeIcon="star" defaultIcon="star-outline" activeColor="#f7c00b" defaultColor="grey"
+        halfStar="true" readonly="true" rating={{ratingDetail.marks}} fontSize="24px">
+      </ionic5-star-rating>
+
+      <p>{{ratingDetail.feedback_text}}</p>
+    </div>
+
+  </ion-grid>
+</ion-content>

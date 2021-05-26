@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button (click)="goBack()">
+      <span></span>
+    </ion-button>
+    <ion-title>service-confirmation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-grid *ngIf="service_request">
+    <div class="sevices-top">
+      <ion-thumbnail slot="start">
+        <img src="assets/imgs/12.jpg">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{service_request.first_name}}</h2>
+      </ion-label>
+    </div>
+
+    <div class="sevices-bottom">
+
+      <div class="border-design">
+        <ion-avatar slot="start">
+          <img [src]="service_request.logo">
+        </ion-avatar>
+        <ion-label>
+          <h2>{{service_request.service_name}}</h2>
+          <!-- <p>Organization</p> -->
+        </ion-label>
+        <div class="price">
+          <h6>Service fees paid</h6>
+          <span slot="end">${{service_request.service_price}}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="action">
+      <ion-button (click)="goToChat()" class="button-h" mode="ios" type="submit" fill="solid" size="default"
+        shape="round" expand="block">
+        Message
+      </ion-button>
+
+
+      <ion-button (click)="rateUser()" class="button-h cancel" mode="ios" fill="solid" size="default" shape="round"
+        expand="block">
+        Rate Pro
+      </ion-button>
+    </div>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Pay Wall Detail</ion-title>
+    <ion-button (click)="back()">
+      <span></span>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+
+<!-- "post_title": "paywall",
+"post_contents": "paywll detail my",
+"post_id": 125304,
+"price": "$50" -->
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-no-padding">
+        <ion-card>
+          <!-- <img src="./madison.jpg" /> -->
+          <ion-card-header>
+            <ion-card-subtitle>{{paywallDetail.post_title}}</ion-card-subtitle>
+            <ion-card-title>Price {{paywallDetail.price}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            {{paywallDetail.post_contents}}
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

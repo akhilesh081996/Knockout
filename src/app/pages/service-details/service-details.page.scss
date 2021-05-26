@@ -1,0 +1,103 @@
+ion-header{
+    text-align: center;
+}
+ion-footer{
+    padding: 10px 10px 10px 10px;
+
+}
+ion-item {
+    --background: white;
+    --highlight-color-focused: none;
+    --highlight-background: none;
+    --min-height: 58px;
+}
+.header-img-div {
+    --padding-end: 0px;
+    --inner-padding-end: 0px;
+    // here other custom CSS from documentation
+  }
+.cover-img-div{
+    width: 100%;
+    height: 280px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.cover-img-mask{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba($color: #000000, $alpha: 0.6);
+}  
+.profile-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    //border-radius: 10%;
+    background-color: white;
+    z-index: 1;
+    
+}
+.answer-video{
+    width: 100%;
+    height: 200px;
+    position: relative;
+    //background-image: url('../../../../assets/imgs/profile.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.price-div{
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 18px; 
+    font-weight: 600; 
+    color:#f7c00b;
+    border:1px solid #f7c00b;
+    padding: 10px;
+    border-radius: 10px;
+}
+.rating-div{
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // color: white;
+    // border:1px solid white;
+    // padding: 10px;
+    // border-radius: 10px;
+}
+.rating-mark-text{
+    color: white; 
+    font-size: large; 
+    font-weight: 600;
+}
+.answer-loaded-video{
+    margin-top: 10px;
+}
+.complete-request-btn{
+    height: 50px;
+    font-size: 14px;
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+    margin-left: 10px;
+    margin-right: 10px;
+    --color: white;
+    --color-activated: white;
+    --background-activated : #e76b6b;
+    --background: #cc0000;
+}

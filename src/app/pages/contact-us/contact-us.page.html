@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button (click)="goBack()">
+      <span></span>
+    </ion-button>
+    <ion-title>Contact Us</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="about-set-all">
+    <ion-label>We'll Get In Touch With You</ion-label>
+
+    <form [formGroup]="feedbackForm" (submit)="submitFeedBack()">
+      <div class="contact-form">
+        <ion-input placeholder="Email" formControlName="email"></ion-input>
+        <ion-input placeholder="Name" formControlName="name"></ion-input>
+        <ion-input placeholder="Phone (Optional)" formControlName="phone"></ion-input>
+        <ion-textarea placeholder="Message" formControlName="message"></ion-textarea>
+        <ion-button>SUBMIT</ion-button>
+      </div>
+
+    </form>
+
+
+  </div>
+</ion-content>

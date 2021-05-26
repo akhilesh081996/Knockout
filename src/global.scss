@@ -1,0 +1,86 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+* {
+    font-family: 'Roboto', sans-serif!important;
+}
+
+ion-header, ion-toolbar{--min-height: 50px;}
+.header-ios ion-toolbar:last-of-type {
+    --border-width: 0;
+}
+
+ion-grid {
+    background: #fff;
+}
+
+body {
+    background: #ffffff;
+}
+ion-content {
+    --background: #fff;
+    --padding-bottom: 50px;
+}
+ion-button {
+    --background-activated: transparent!important;
+    --background-focused: transparent!important;
+    --background-hover: transparent!important;
+}
+
+ion-title {
+    text-transform: capitalize;
+}
+
+
+ion-header ion-toolbar {
+    --background: #cc0000!important;
+    color: #fff!important;
+}
+
+ion-header ion-toolbar ion-button span {
+    border-left: 2px solid #fff!important;
+    border-bottom: 2px solid #fff!important;
+}
+
+
+button.action-sheet-button {
+    font-size: 14px!important;
+    height: 30px!important;
+    color: #666!important;
+    padding-top: 0!important;
+    padding-bottom: 0!important;
+}
+
+.action-sheet-group {
+    padding: 15px!important;
+}
+
+.action-sheet-title {
+    font-size: 16px!important;
+    color: #c00!important;
+}

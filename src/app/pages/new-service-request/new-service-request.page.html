@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon name="arrow-back-outline" slot="start"></ion-icon>
+    <ion-title>Select Services</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-grid>
+  <ion-list class="sevices-top">
+    <ion-item >
+      <ion-thumbnail slot="start">
+        <img src="assets/imgs/12.jpg">
+      </ion-thumbnail>
+        <ion-label>
+          <h2>Service name</h2>          
+        </ion-label>  
+        <span>
+          <ion-icon src="assets/imgs/edit.svg"></ion-icon>     
+        </span>
+    </ion-item>
+    </ion-list>
+
+    <div class="description">
+      <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
+    </div>
+
+
+    <div class="timings">
+      <ion-icon src="assets/imgs/calendar.svg"></ion-icon>
+      <div class="select-timing">
+        <ion-datetime value="1990-02-19" placeholder="Select Date"></ion-datetime>
+        <ion-datetime display-format="h:mm A" picker-format="h:mm A" value="1990-02-19T07:43Z"  placeholder="Select Date"></ion-datetime>
+      </div>
+    </div>
+
+
+  <ion-list class="sevices-bottom">
+    <ion-item >
+      <ion-avatar slot="start">
+        <img src="assets/imgs/12.jpg">
+      </ion-avatar>
+      <div class="border-design">
+        <ion-label>
+          <h2>Service name</h2>
+          <p>Organization</p>
+        </ion-label>
+        <div class="price">
+          <span slot="end">$50</span>
+        </div>              
+      </div> 
+    </ion-item>
+   
+    </ion-list>
+
+  <div class="payment-method">
+        <h3>Payment method</h3>
+        <span>Card *3265</span>
+  </div>
+
+  <div class="action">
+    <ion-button class="button-h" mode="ios" type="submit"  fill="solid" size="default" shape="round" expand="block">
+      Add Payment Method
+    </ion-button>
+    <ion-button class="button-h cancel" mode="ios" fill="solid" size="default" shape="round" expand="block">
+      Next
+    </ion-button>
+  </div>    
+</ion-grid>
+</ion-content>

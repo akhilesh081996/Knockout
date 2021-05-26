@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ratings</ion-title>
+    <ion-button (click)="back()">
+      <span></span>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <div class="filter">
+      <ion-label>Sorted By</ion-label>
+      <ion-select ok-text="Okay" cancel-text="Nah">
+        <ion-select-option value="latest">Latest</ion-select-option>
+        <ion-select-option value="highest">Highest</ion-select-option>
+        <ion-select-option value="lowest">Lowest</ion-select-option>
+      </ion-select>
+    </div>
+
+    <ion-list *ngIf="!isLoading">
+
+      <ion-item *ngFor="let item of ratingList; let i = index" (click)="ratingDetail(item)">
+
+        <ion-thumbnail slot="start">
+          <ion-img [src]="item.from_user_picture"></ion-img>
+        </ion-thumbnail>
+        <h6>{{item.from_user_name}}</h6>
+
+        <ionic5-star-rating #rating activeIcon="star" defaultIcon="star-outline" activeColor="#f7c00b"
+          defaultColor="grey" halfStar="true" readonly="true" rating={{item.marks}} fontSize="24px">
+        </ionic5-star-rating>
+
+      </ion-item>
+
+    </ion-list>
+  </ion-grid>
+</ion-content>

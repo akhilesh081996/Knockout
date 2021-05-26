@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button (click)="back()">
+      <span></span>
+    </ion-button>
+    <ion-title>Services Request Detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+
+    <ion-card>
+      <img src="assets/imgs/messi.jpg">
+      <ion-card-header>
+        <ion-card-title>{{service_request?.name}}</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+
+    <div class="sevices-bottom">
+
+      <div class="border-design">
+        <ion-avatar slot="start">
+          <img [src]="service_request?.customer_profile_picture">
+        </ion-avatar>
+        <ion-label>
+          <h2>{{service_request?.from_user_name}}</h2>
+          <!-- <p>Organization</p> -->
+        </ion-label>
+        <div class="price">
+          <span slot="end">${{service_request?.service_price}}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="action">
+      <ion-button (click)="sendMessage()" class="button-h" mode="ios" type="submit" fill="solid" size="default"
+        shape="round" expand="block">
+        message
+      </ion-button>
+    </div>
+
+
+    <div class="update">
+      <ion-select ok-text="Ok" cancel-text="No">
+        <ion-select-option value="complete">Complete</ion-select-option>
+        <ion-select-option value="reject">Reject</ion-select-option>
+        <ion-select-option value="accept">Accept</ion-select-option>
+      </ion-select>
+
+      <ion-button class="button-h" mode="ios" type="submit" fill="solid" size="default" shape="round" expand="block">
+        Update
+      </ion-button>
+    </div>
+
+    <div class="driving-info">
+      <p>{{service_request?.request}}</p>
+    </div>
+
+  </ion-grid>
+
+</ion-content>

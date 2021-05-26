@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- <ion-icon name="arrow-back-outline" slot="start" (click)="goBack()"></ion-icon> -->
+    <ion-title>services</ion-title>
+    <ion-button (click)="goBack()">
+      <span></span>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<div>
+  <ion-grid *ngIf="!isCategoryLoading">
+    <ion-row>
+      <ion-col size="3" *ngFor="let item of categorylist; let i = index">
+        <div *ngIf="selectedCategory != item.id" class="category-item" (click)="selectCategory(item)">{{item.name}}
+        </div>
+        <div *ngIf="selectedCategory == item.id" class="category-item category-item-active"
+          (click)="selectCategory(item)">{{item.name}}</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
+
+
+<div style="padding: 0px 10px 0px 10px">
+  <ion-list class="line-input" *ngIf="!isCategoryLoading">
+    <ion-item mode="md">
+      <ion-icon name="search-outline" size="small" slot="start"></ion-icon>
+      <ion-input class="ion-text-left" placeholder="Search Pro" type="email" (ionChange)="searchInputChange($event)">
+      </ion-input>
+    </ion-item>
+  </ion-list>
+</div>
+
+<ion-content>
+  <ion-grid class="ion-no-padding">
+
+    <ion-row class="ion-justify-content-center ion-align-items-center">
+      <ion-col class="ion-text-center">
+        <app-loading *ngIf="isLoading || isCategoryLoading"></app-loading>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+
+        <!-- <ion-list class="sevices-top">
+          <ion-item>
+            <ion-avatar slot="start">
+              <img src="assets/imgs/12.jpg">
+            </ion-avatar>
+            <div class="border-design">
+              <ion-label>
+                <h2>Service name</h2>
+              </ion-label>
+              <div class="price">
+                <span slot="end">$50</span>
+                <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+              </div>
+            </div>
+          </ion-item>
+        </ion-list> -->
+
+        <!--    <div class="search-bar">
+          <ion-searchbar placeholder="Search pro"></ion-searchbar>
+        </div> -->
+
+        <ion-list class="sevices-bottom">
+
+          <ion-item *ngFor="let item of pro_userlist; let i = index" (click)="selectService(item)">
+            <ion-avatar slot="start">
+              <img [src]="item.logo">
+            </ion-avatar>
+            <div class="border-design">
+              <ion-label>
+                <h2>{{item.name}}</h2>
+                <!-- <p>Organization</p> -->
+              </ion-label>
+              <div class="price">
+                <span slot="end">${{item.service_price}}</span>
+                <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+              </div>
+            </div>
+          </ion-item>
+
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

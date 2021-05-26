@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon name="arrow-back-outline" slot="start" (click)="back()"></ion-icon>
+    <ion-title>Add Payment Information</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center ion-align-items-start">
+      <ion-col size="12" class="ion-text-center">
+        <form class="form" autocomplete="off" [formGroup]="validationsform"
+          (ngSubmit)="addPaymentMethod(validationsform.value)">
+
+          <ion-input class="ion-text-left" type="text" placeholder="Name on card" formControlName="name"></ion-input>
+          <ion-input class="ion-text-left" type="tel" maxlength="19" placeholder="Card Number"
+            [(ngModel)]="creditCardNumber" formControlName="card_number" (ionChange)="cc_format($event.target.value)">
+          </ion-input>
+          <ion-input class="ion-text-left" type="text" placeholder="Expiration mm/dd/yyyy"
+            formControlName="expiration_date"></ion-input>
+          <ion-input class="ion-text-left" maxlength="3" type="text" placeholder="Cvv Number" formControlName="cvv">
+          </ion-input>
+          <ion-input class="ion-text-left" type="text" placeholder="Zip Code" formControlName="name"></ion-input>
+
+          <app-loading *ngIf="isUpdating"></app-loading>
+          <div class="action">
+
+            <ion-button class="button-h" mode="ios" type="submit" [disabled]="!validationsform.valid" fill="solid"
+              size="default" shape="round" expand="block">
+              Confirm
+            </ion-button>
+
+            <ion-button (click)="back()" class="button-h cancel" mode="ios" fill="solid" size="default" shape="round"
+              expand="block">
+              Cancel
+            </ion-button>
+          </div>
+
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

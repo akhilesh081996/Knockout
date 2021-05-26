@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button (click)="goback()">
+      <span></span>
+    </ion-button>
+    <ion-title>{{receiverInfo?.from_user_name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid #chatcontent>
+
+    <div *ngFor="let chat of chatList" [ngClass]="user.user_id==chat.sender_id ?  'reciever' : 'sender' ">
+      <ion-thumbnail *ngIf="user.user_id !=chat.sender_id">
+        <img [src]="chat.sender_avatar" alt="">
+      </ion-thumbnail>
+
+      <div [ngClass]="user.user_id==chat.sender_id ? 'reciever-text' :  'sender-text' ">
+
+        <div class="attach-wrapper">
+          <div class="video-attachment" *ngIf="chat.file_type=='video'">
+            <video (press)="presentActionSheet(chat)" height="150" width="100%" preload="metadata">
+              <source [src]="chat.file_path" type="video/mp4">
+            </video>
+            <ion-icon name="play-circle-outline" (click)="playVideo(chat)"></ion-icon>
+          </div>
+
+          <audio height="150" controls="" *ngIf="chat.file_type=='audio'">
+            <source [src]="chat.file_path" type="audio/ogg">
+          </audio>
+
+          <img height="150" [src]="chat.file_path" *ngIf="chat.file_type=='image'" alt="Italian Trulli">
+
+        </div>
+
+        <div *ngIf="chat.message" class="text-message">
+          <p>{{chat.message}}</p>
+        </div>
+        <small>{{chat.dateTime | chatTime}}</small>
+
+      </div>
+    </div>
+
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <input type="file" hidden accept="{{acceptType}}/*" #attachInput (change)="onFileSelected($event)">
+
+  <ion-list class="attachment-option" *ngIf="isAttachment">
+    <ion-item (click)="chooseFile('image')">
+      <ion-icon slot="start" src="assets/imgs/camera.svg"></ion-icon>Add Photo
+    </ion-item>
+    <ion-item (click)="chooseFile('audio')">
+      <ion-icon slot="start" src="assets/imgs/musical-note.svg"></ion-icon>Add Audio
+    </ion-item>
+    <ion-item (click)="chooseFile('video')">
+      <ion-icon slot="start" src="assets/imgs/video-camera.svg"></ion-icon>Add Video
+    </ion-item>
+  </ion-list>
+
+  <div class="type-msg">
+    <ion-textarea placeholder="typing..." rows="1" auto-grow="true" [(ngModel)]="message"></ion-textarea>
+    <ion-icon src="assets/imgs/send.svg" slot="end" (click)="sendMessage()"></ion-icon>
+    <ion-icon src="assets/imgs/attach.svg" slot="end" (click)="toggleAttachement()"></ion-icon>
+  </div>
+</ion-footer>

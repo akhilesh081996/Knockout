@@ -1,0 +1,194 @@
+<ion-header mode="md">
+  <ion-toolbar>
+    <ion-title>Home</ion-title>
+
+    <!-- <ion-buttons slot="end">
+      <ion-button (click)="openMenu()" slot="start">
+        <ion-icon name="menu-outline" style="font-size: 32px;"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
+  </ion-toolbar>
+
+</ion-header>
+<div>
+  <ion-grid *ngIf="!isCategoryLoading">
+    <ion-row>
+      <ion-col size="3" *ngFor="let item of categorylist; let i = index">
+        <div *ngIf="selectedCategory != item.id" class="category-item" (click)="selectCategory(item)">{{item.name}}
+        </div>
+        <div *ngIf="selectedCategory == item.id" class="category-item category-item-active"
+          (click)="selectCategory(item)">{{item.name}}</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
+<div style="padding: 0px 10px 10px 10px">
+  <ion-list class="line-input" *ngIf="!isCategoryLoading">
+    <ion-item mode="md">
+      <ion-icon name="search-outline" size="small" slot="start"></ion-icon>
+      <ion-input class="ion-text-left" placeholder="Search Pro" type="email" (ionChange)="searchInputChange($event)">
+      </ion-input>
+    </ion-item>
+  </ion-list>
+</div>
+
+<ion-content>
+
+  <ion-row class="ion-justify-content-center ion-align-items-center">
+    <ion-col class="ion-text-center">
+      <app-loading *ngIf="isLoading || isCategoryLoading"></app-loading>
+    </ion-col>
+  </ion-row>
+
+  <ion-grid class="ion-no-padding" *ngIf="!isLoading">
+
+
+    <ion-row class="feature-category">
+
+      <ion-col size="6" *ngFor="let user of pro_userlist | slice : 0 : 3" (click)="selectService(user)">
+        <ion-card>
+          <div class="feature-category-img">
+            <ion-img [src]="user.logo"></ion-img>
+          </div>
+          <ion-card-header>
+            <h3><b>{{user.name}}</b>${{user.service_price}}</h3>
+            <!-- <span>Salt Lake City Coyotes, Center</span> -->
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+
+
+
+    <ion-row class="feature-category" *ngIf="new_featured.length">
+      <ion-col size="12">
+        <h2>News & featured</h2>
+      </ion-col>
+
+      <ion-col size="6" *ngFor="let user of new_featured | slice : 0 : 1" (click)="selectService(user)">
+        <ion-card>
+          <div class="feature-category-img">
+            <ion-img [src]="user.logo"></ion-img>
+          </div>
+          <ion-card-header>
+            <h3><b>{{user.name}}</b>${{user.service_price}}</h3>
+            <!-- <span>Salt Lake City Coyotes, Center</span> -->
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+
+
+    <ion-row class="feature-category" *ngIf="most_popular.length">
+      <ion-col size="12">
+        <h2>Most Popular</h2>
+      </ion-col>
+      <ion-col size="6" *ngFor="let user of most_popular | slice : 0 : 1" (click)="selectService(user)">
+        <ion-card>
+          <div class="feature-category-img">
+            <ion-img [src]="user.logo"></ion-img>
+          </div>
+          <ion-card-header>
+            <h3><b>{{user.name}}</b>${{user.service_price}}</h3>
+            <!-- <span>Salt Lake City Coyotes, Center</span> -->
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+
+    <!--  <ion-row class="promotional-category">
+      <ion-col size="12">
+        <h2>promotional categories</h2>
+      </ion-col>
+
+      <ion-col size="4">
+        <ion-card>
+          <div class="promotional-category-img">
+            <ion-img src="assets/imgs/promotion-1.jpeg"></ion-img>
+          </div>
+          <ion-card-header>Title</ion-card-header>
+        </ion-card>
+      </ion-col>
+
+    </ion-row> -->
+
+    <!--  <ion-row class="popular-category">
+      <ion-col size="12">
+        <h2>Popular categories</h2>
+      </ion-col>
+      <ion-col size="4">
+        <ion-card>
+          <div class="popular-category-img">
+            <ion-img src="assets/imgs/soccer.jpeg"></ion-img>
+          </div>
+          <ion-card-header>Soccer</ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="4">
+        <ion-card>
+          <div class="popular-category-img">
+            <ion-img src="assets/imgs/basketball.jpg"></ion-img>
+          </div>
+          <ion-card-header>Basketball</ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="4">
+        <ion-card>
+          <div class="popular-category-img">
+            <ion-img src="assets/imgs/tennis.jpeg"></ion-img>
+          </div>
+          <ion-card-header>Tennis</ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="4">
+        <ion-card>
+          <div class="popular-category-img">
+            <ion-img src="assets/imgs/boxing.jpeg"></ion-img>
+          </div>
+          <ion-card-header>Boxing</ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="4">
+        <ion-card>
+          <div class="popular-category-img">
+            <ion-img src="assets/imgs/baseball.jpeg"></ion-img>
+          </div>
+          <ion-card-header>Baseball</ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="4">
+        <ion-card>
+          <div class="popular-category-img">
+            <ion-img src="assets/imgs/football.jpeg"></ion-img>
+          </div>
+          <ion-card-header>Football</ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row> -->
+
+
+
+    <ion-row class="feature-category" *ngIf="featured_category.length">
+      <ion-col size="12">
+        <h2>Feature categories</h2>
+      </ion-col>
+      <ion-col size="6" *ngFor="let user of featured_category | slice : 0 : 1" (click)="selectService(user)">
+        <ion-card>
+          <div class="feature-category-img">
+            <ion-img [src]="user.logo"></ion-img>
+          </div>
+          <ion-card-header>
+            <h3><b>{{user.name}}</b>{{user.service_price}}</h3>
+            <!-- <span>Salt Lake City Coyotes, Center</span> -->
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>

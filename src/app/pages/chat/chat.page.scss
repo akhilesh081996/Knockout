@@ -1,0 +1,222 @@
+
+ion-content {
+    --padding-bottom: 0;
+}
+
+ion-header ion-toolbar {
+    --background: white;
+    border-bottom: 1px solid #f2f2f2;
+    --border-width: 0;
+    ion-title {
+        text-align: center;
+    }
+    ion-button {
+        --background: transparent;
+        z-index: 1;
+        --background: transparent;
+        --box-shadow: 0;
+        position: absolute;
+        top: 8px;
+        margin: 0 0 0 15px;
+        --padding-start: 0;
+        span {
+            width: 15px;
+            height: 15px;
+            border-left: 2px solid black;
+            border-bottom: 2px solid black;
+            transform: rotate(45deg);
+            margin-left: 5px;
+            ;
+        }
+    }    
+}
+
+ion-header:after {
+    background-image: none !important;
+}
+
+ion-grid {
+    background: #fff;
+    padding: 15px;
+}
+
+ion-content {
+    --background: #fff;
+}
+
+
+
+.type-msg {
+    display: flex;
+    background: #efefef;
+    padding: 10px;
+    align-items: center;
+
+    ion-textarea {
+        --background: #fff !important;
+        border-radius: 30px;
+        --padding-start: 16px !important;
+        margin-right: 10px;
+        min-height: 48px;
+        --padding-top: 12px;
+        margin-top: 0;
+    }
+
+    ion-icon {
+        font-size: 24px;
+        padding: 4px;
+        color: #ca0000;
+    }
+}
+
+.sender {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 16px;
+
+    ion-thumbnail {
+        width: 42px;
+        height: 42px;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-right: 10px;
+    }
+
+    small {
+        font-size: 11px;
+        color: #0000008a;
+        padding-left: 10px;
+    }
+}
+
+.sender-text {
+    p {
+        margin: 0 0 6px 0;
+        font-size: 13px;
+        line-height: 16px;
+    }
+
+    ion-thumbnail {
+        width: 42px;
+        height: 42px;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-right: 10px;
+    }
+
+    .text-message {
+        background: #f3f3f3;
+        padding: 10px;
+        border-radius: 5px;
+        border-top-left-radius: 0;
+        position: relative;
+    }
+}
+
+.sender-text .text-message:after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 8px solid #f3f3f3;
+    border-left: 8px solid transparent;
+    position: absolute;
+    top: 0;
+    left: -8px;
+}
+
+
+.reciever-text {
+    p {
+        margin: 0 0 6px 0;
+        font-size: 13px;
+        line-height: 16px;
+    }
+
+    ion-thumbnail {
+        width: 42px;
+        height: 42px;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-right: 10px;
+    }
+
+    .text-message {
+        background: #f3f3f3;
+        padding: 10px;
+        border-radius: 5px;
+        border-top-right-radius: 0;
+        position: relative;
+        margin-bottom: 5px;
+    }
+}
+
+.reciever-text .text-message:after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 8px solid #f3f3f3;
+    border-right: 8px solid transparent;
+    position: absolute;
+    top: 0;
+    right: -8px;
+}
+
+
+.reciever-text {
+    display: inline-flex;
+    flex-direction: column;
+    width: auto;
+    max-width: 80%;
+}
+
+.reciever {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+
+    small {
+        font-size: 11px;
+        color: #0000008a;
+        padding-left: 10px;
+    }
+}
+
+ion-list {
+    border-radius: 10px 10px 0 0;
+    background: #efefef !important;
+}
+
+ion-item {
+    --inner-border-width: 0;
+    --background: #efefef;
+    --min-height: 44px;
+}
+
+.sender-text {
+    width: calc(100% - 52px);
+}
+
+.attach-wrapper {
+    border: 1px solid #efefef;
+    border-radius: 8px;
+    max-width: 200px;
+    object-fit: cover;
+    width: auto;
+    audio {
+        max-width: 200px;
+        height: 40px;
+    }
+}
+
+.video-attachment {
+    position: relative;
+}
+
+.video-attachment ion-icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+    color: #fff;
+}

@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- <ion-title>video-archieve</ion-title> -->
+    <ion-button (click)="back()">
+      <span></span>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-grid  class="ion-no-padding">
+  <ion-row >
+    <ion-col  class="ion-no-padding video-play"  >
+      <video id="videoPlayer" controls playsinline width="100%" autoplay="true">
+        <source [src]="videUrl"  />
+      </video>
+      <!-- <ion-button (click)="Play(videUrl)">Play</ion-button> -->
+   
+     <!--  <div class="video-title">
+        <h2>Lorem Ipsum is simply a dummy text</h2>
+        <small>Sat, 08 May 2021</small>
+      </div> -->
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>
